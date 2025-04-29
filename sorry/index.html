@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Heartfelt Apology</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        /* Chat screenshots styling */
+        .chat-memories {
+            margin-top: 4rem;
+            opacity: 0;
+            animation: fadeIn 1s ease-in 1.8s forwards;
+        }
+        
+        .chat-memories h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #2c3e50;
+            font-weight: 400;
+        }
+        
+        .screenshots-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin: 0 auto;
+            max-width: 600px;
+        }
+        
+        .screenshot-box {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            padding-bottom: 1rem;
+        }
+        
+        .screenshot-box:hover {
+            transform: translateY(-5px);
+        }
+        
+        .chat-screenshot {
+            width: 100%;
+            display: block;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .screenshot-caption {
+            padding: 1rem;
+            color: #34495e;
+            font-size: 0.95rem;
+            text-align: center;
+            font-style: italic;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            opacity: 0;
+            animation: fadeIn 1s ease-in forwards;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+        
+        .letter {
+            background-color: white;
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideUp 1s ease-out 0.5s forwards;
+        }
+        
+        .letter:before {
+            content: "";
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border: 2px solid #3498db;
+            border-radius: 12px;
+            opacity: 0.5;
+            z-index: -1;
+        }
+        
+        .letter p {
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+            color: #34495e;
+            font-size: 1.1rem;
+        }
+        
+        .signature {
+            text-align: right;
+            font-style: italic;
+            margin-top: 2rem;
+            font-size: 1.2rem;
+            color: #3498db;
+        }
+        
+        .memories {
+            margin-top: 4rem;
+            opacity: 0;
+            animation: fadeIn 1s ease-in 1.5s forwards;
+        }
+        
+        .memories h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #2c3e50;
+            font-weight: 400;
+        }
+        
+        .memory-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+        
+        .memory {
+            width: 200px;
+            height: 200px;
+            background-color: #ecf0f1;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .memory:hover {
+            transform: translateY(-10px);
+        }
+        
+        .memory-text {
+            padding: 1rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #34495e;
+        }
+        
+        .promise-section {
+            margin-top: 4rem;
+            padding: 2rem;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            opacity: 0;
+            animation: fadeIn 1s ease-in 2s forwards;
+        }
+        
+        .promise-section h2 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+            font-weight: 400;
+        }
+        
+        .promise-list {
+            list-style-type: none;
+        }
+        
+        .promise-list li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .promise-list li:before {
+            content: "♥";
+            position: absolute;
+            left: 0;
+            color: #e74c3c;
+        }
+        
+        .cta {
+            margin-top: 4rem;
+            text-align: center;
+            opacity: 0;
+            animation: fadeIn 1s ease-in 2.5s forwards;
+        }
+        
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+        }
+        
+        .button {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background-color: #3498db;
+            color: white;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .button:hover {
+            background-color: #2980b9;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(52, 152, 219, 0.4);
+        }
+        
+        footer {
+            margin-top: 4rem;
+            text-align: center;
+            padding: 1rem;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Floating shapes background */
+        .shapes {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .shape {
+            position: absolute;
+            opacity: 0.2;
+            animation: float 15s infinite ease-in-out;
+        }
+        
+        .shape:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: #3498db;
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+        
+        .shape:nth-child(2) {
+            width: 60px;
+            height: 60px;
+            background-color: #e74c3c;
+            top: 20%;
+            right: 15%;
+            animation-delay: 2s;
+        }
+        
+        .shape:nth-child(3) {
+            width: 70px;
+            height: 70px;
+            background-color: #2ecc71;
+            bottom: 15%;
+            left: 15%;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            animation-delay: 4s;
+        }
+        
+        .shape:nth-child(4) {
+            width: 50px;
+            height: 50px;
+            background-color: #f39c12;
+            bottom: 20%;
+            right: 10%;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            animation-delay: 6s;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            25% {
+                transform: translate(10px, 10px) rotate(5deg);
+            }
+            50% {
+                transform: translate(0, 20px) rotate(0deg);
+            }
+            75% {
+                transform: translate(-10px, 10px) rotate(-5deg);
+            }
+            100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .letter {
+                padding: 1.5rem;
+            }
+            
+            .memory {
+                width: 150px;
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>From the Heart</h1>
+        </header>
+        
+        <div class="letter">
+            <p>Dear Friend,</p>
+            
+            <p>Some friendships are so special they deserve more than just words. That's why I created this page for you – because our friendship means everything to me.</p>
+            
+            <p>I want to apologize from the bottom of my heart for all the arguments and difficult moments we've had. I know that my words and actions have caused pain and created distance between us. The truth is, I miss the way things used to be between us. I miss your laughter, our conversations, and the comfort of knowing we had each other's backs no matter what.</p>
+            
+            <p>Looking back, I can see how I let disagreements escalate and pride get in the way of what really matters. I should have listened more, been more understanding, and remembered that no argument is worth damaging what we have.</p>
+            
+            <p>You deserve better from me. You deserve a friend who values your perspective, respects your feelings, and treats you with kindness even when we don't see eye to eye.</p>
+            
+            <p>I can't change what's happened, but I can promise to do better moving forward. Our friendship is too precious to lose over disagreements, and I'm committed to rebuilding the trust and closeness we once had.</p>
+            <p>I know this is not that impressive but thats all i know to do and i am confident on thanks too you </p>
+            <p class="signature">With sincere apologies and hope for forgiveness,</p>
+            <p class="signature">teddy</p>
+        </div>
+        
+        <div class="memories">
+            <h2>Memories I Cherish</h2>
+            <div class="memory-container">
+                <div class="memory">
+                    <div class="memory-text">Remember when we stayed up all night talking until sunrise? Those conversations meant the world to me.</div>
+                </div>
+                <div class="memory">
+                    <div class="memory-text">That gossip and fun things we do to have fun and laugh out loud like stupids xD</div>
+                </div>
+                <div class="memory">
+                    <div class="memory-text">The time when you and i shared our trauma and supported each other</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="chat-memories">
+            <h2>Our Favorite Conversations</h2>
+            <div class="screenshots-container">
+                <div class="screenshot-box">
+                    <img src="image8.png" alt="Chat screenshot 1" class="chat-screenshot"/>
+                    <div class="screenshot-caption">Remember this conversation? i made smtg for you in website and the way you complimented. it motivated me</div>
+                </div>
+                <div class="screenshot-box">
+                    <img src="image3" alt="Chat screenshot 2" class="chat-screenshot"/>
+                    <div class="screenshot-caption">remeber our daily routine chat of discussing about days and all it always made my day great</div>
+                </div>
+                <div class="screenshot-box">
+                    <img src="image4" alt="Chat screenshot 3" class="chat-screenshot"/>
+                    <div class="screenshot-caption">our random mid night chats sharing things about what happened always made smile happily you smiled too?</div>
+                </div>
+                <div class="screenshot-box">
+                    <img src="image5" alt="Chat screenshot 3" class="chat-screenshot"/>
+                    <div class="screenshot-caption">and that random funny topics that made no sense lol</div>
+                </div>
+                <div class="screenshot-box">
+                    <img src="image9" alt="Chat screenshot 3" class="chat-screenshot"/>
+                    <div class="screenshot-caption">and that good night after late night chats just make my night sweet</div>
+            </div>
+            <div class="screenshot-box">
+                <img src="image7" alt="Chat screenshot 3" class="chat-screenshot"/>
+                <div class="screenshot-caption">those games we play when we get bored just to be active and talk with each other</div>
+            </div>
+
+        </div>
+        
+        <div class="promise-section">
+            <h2>My Promises to You</h2>
+            <ul class="promise-list">
+                <li>I promise to listen more carefully and genuinely try to understand your perspective before responding.</li>
+                <li>I promise to be mindful of my tone and words, especially during disagreements.</li>
+                <li>I promise to check in on how you're feeling and create space for honest communication.</li>
+                <li>I promise to prioritize our friendship over being right in an argument.</li>
+                <li>I promise to never make you angry if i am not in good mood i will not gonna mess up everything</li>
+            </ul>
+        </div>
+        
+        <div class="cta">
+            <p>I miss you. Can we start again?</p>
+            <a href="https://discord.com/users/1013851779886231685" class="button">Let's Talk ❤️</a>
+        </div>
+        
+        <footer>
+            <p>Created with love and sincere regret for the pain I've caused. You mean the world to me. please comeback i am regretting my on my mistakes</p>
+        </footer>
+    </div>
+</body>
+</html>
