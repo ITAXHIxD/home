@@ -55,10 +55,43 @@
         
         .chat-screenshot {
             width: 100%;
-            max-height: 400px;
+            height: 200px;
             display: block;
             border-bottom: 1px solid #eee;
-            object-fit: contain;
+            background-color: #f8f9fa;
+            position: relative;
+        }
+        
+        .chat-bubble {
+            padding: 10px 15px;
+            border-radius: 18px;
+            margin: 10px;
+            max-width: 70%;
+            position: relative;
+            font-size: 0.9rem;
+        }
+        
+        .friend-bubble {
+            background-color: #e9e9eb;
+            color: #000;
+            align-self: flex-start;
+            float: left;
+            clear: both;
+        }
+        
+        .my-bubble {
+            background-color: #3498db;
+            color: #fff;
+            align-self: flex-end;
+            float: right;
+            clear: both;
+        }
+        
+        .chat-time {
+            font-size: 0.7rem;
+            color: #999;
+            margin-top: 2px;
+            text-align: right;
         }
         
         .screenshot-caption {
@@ -387,7 +420,7 @@
             
             
             <p>I can't change what's happened, but I can promise to do better moving forward. Our friendship is too precious to lose over disagreements, and I'm committed to rebuilding the trust and closeness we once had.</p>
-            <p>I know this is not that impressive but thats all i know to do and i am confident on thanks too you </p>
+            <p>I know this is not that impressive but that's all I know to do and I am confident thanks to you.</p>
             <p class="signature">With sincere apologies and hope for forgiveness,</p>
             <p class="signature">teddy</p>
         </div>
@@ -402,7 +435,7 @@
                     <div class="memory-text">That gossip and fun things we do to have fun and laugh out loud like stupids xD</div>
                 </div>
                 <div class="memory">
-                    <div class="memory-text">The time when you and i shared our trauma and supported each other</div>
+                    <div class="memory-text">The time when you and I shared our trauma and supported each other</div>
                 </div>
             </div>
         </div>
@@ -411,28 +444,82 @@
             <h2>Our Favorite Conversations</h2>
             <div class="screenshots-container">
                 <div class="screenshot-box">
-                    <img src="/api/placeholder/400/320" alt="Chat screenshot 1" class="chat-screenshot"/>
-                    <div class="screenshot-caption">Remember this conversation? i made smtg for you in website and the way you complimented. it motivated me</div>
+                    <div class="chat-screenshot">
+                        <div class="chat-bubble friend-bubble">
+                            Wow, this website looks amazing! You're so talented!
+                            <div class="chat-time">9:45 PM</div>
+                        </div>
+                        <div class="chat-bubble my-bubble">
+                            Thank you so much! I made it just for you :)
+                            <div class="chat-time">9:46 PM</div>
+                        </div>
+                    </div>
+                    <div class="screenshot-caption">Remember this conversation? I made something for you in website and the way you complimented. It motivated me</div>
                 </div>
                 <div class="screenshot-box">
-                    <img src="/api/placeholder/400/320" alt="Chat screenshot 2" class="chat-screenshot"/>
-                    <div class="screenshot-caption">remeber our daily routine chat of discussing about days and all it always made my day great</div>
+                    <div class="chat-screenshot">
+                        <div class="chat-bubble my-bubble">
+                            How was your day today?
+                            <div class="chat-time">7:22 PM</div>
+                        </div>
+                        <div class="chat-bubble friend-bubble">
+                            It was good! Had that big meeting I was nervous about but it went well!
+                            <div class="chat-time">7:25 PM</div>
+                        </div>
+                    </div>
+                    <div class="screenshot-caption">Remember our daily routine chat of discussing about days and all it always made my day great</div>
                 </div>
                 <div class="screenshot-box">
-                    <img src="/api/placeholder/400/320" alt="Chat screenshot 3" class="chat-screenshot"/>
-                    <div class="screenshot-caption">our random mid night chats sharing things about what happened always made smile happily you smiled too?</div>
+                    <div class="chat-screenshot">
+                        <div class="chat-bubble friend-bubble">
+                            Can't sleep...you still up?
+                            <div class="chat-time">1:12 AM</div>
+                        </div>
+                        <div class="chat-bubble my-bubble">
+                            Always here for you! What's on your mind?
+                            <div class="chat-time">1:13 AM</div>
+                        </div>
+                    </div>
+                    <div class="screenshot-caption">Our random mid night chats sharing things about what happened always made me smile happily. You smiled too?</div>
                 </div>
                 <div class="screenshot-box">
-                    <img src="/api/placeholder/400/320" alt="Chat screenshot 4" class="chat-screenshot"/>
-                    <div class="screenshot-caption">and that random funny topics that made no sense lol</div>
+                    <div class="chat-screenshot">
+                        <div class="chat-bubble my-bubble">
+                            What if bananas were blue? Would they taste different?
+                            <div class="chat-time">11:03 PM</div>
+                        </div>
+                        <div class="chat-bubble friend-bubble">
+                            Lol you're so random! But now I can't stop thinking about it 😂
+                            <div class="chat-time">11:05 PM</div>
+                        </div>
+                    </div>
+                    <div class="screenshot-caption">And that random funny topics that made no sense lol</div>
                 </div>
                 <div class="screenshot-box">
-                    <img src="/api/placeholder/400/320" alt="Chat screenshot 5" class="chat-screenshot"/>
-                    <div class="screenshot-caption">and that good night after late night chats just make my night sweet</div>
+                    <div class="chat-screenshot">
+                        <div class="chat-bubble my-bubble">
+                            I'm getting sleepy. Sweet dreams when you go to bed ❤️
+                            <div class="chat-time">12:45 AM</div>
+                        </div>
+                        <div class="chat-bubble friend-bubble">
+                            Good night! Sleep well and talk tomorrow 💤
+                            <div class="chat-time">12:46 AM</div>
+                        </div>
+                    </div>
+                    <div class="screenshot-caption">And that good night after late night chats just make my night sweet</div>
                 </div>
                 <div class="screenshot-box">
-                    <img src="/api/placeholder/400/320" alt="Chat screenshot 6" class="chat-screenshot"/>
-                    <div class="screenshot-caption">those games we play when we get bored just to be active and talk with each other</div>
+                    <div class="chat-screenshot">
+                        <div class="chat-bubble friend-bubble">
+                            I'm bored. Wanna play 20 questions?
+                            <div class="chat-time">4:30 PM</div>
+                        </div>
+                        <div class="chat-bubble my-bubble">
+                            You read my mind! I'll go first. Animal, vegetable or mineral?
+                            <div class="chat-time">4:31 PM</div>
+                        </div>
+                    </div>
+                    <div class="screenshot-caption">Those games we play when we get bored just to be active and talk with each other</div>
                 </div>
             </div>
         </div>
@@ -444,7 +531,7 @@
                 <li>I promise to be mindful of my tone and words, especially during disagreements.</li>
                 <li>I promise to check in on how you're feeling and create space for honest communication.</li>
                 <li>I promise to prioritize our friendship over being right in an argument.</li>
-                <li>I promise to never make you angry if i am not in good mood i will not gonna mess up everything</li>
+                <li>I promise to never make you angry if I am not in good mood I will not gonna mess up everything</li>
             </ul>
         </div>
         
@@ -454,7 +541,7 @@
         </div>
         
         <footer>
-            <p>Created with love and sincere regret for the pain I've caused. You mean the world to me. please comeback i am regretting my on my mistakes</p>
+            <p>Created with love and sincere regret for the pain I've caused. You mean the world to me. Please comeback I am regretting my mistakes</p>
         </footer>
     </div>
 </body>
