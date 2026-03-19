@@ -63,7 +63,7 @@
 <!-- Loading Screen -->
     <div id="loading-screen" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #0f0f1a; z-index: 9999; display: flex; flex-direction: column; justify-content: center; align-items: center;">
         <div style="text-align: center;">
-            <h1 style="color: #4ecdc4; font-size: 2.5em;"><img src="shreefasf.png"><li> Shreef Bot</li></h1>
+            <h1 style="color: #4ecdc4; font-size: 2.5em;"><img src="shreefasf.png"> Shreef Bot</h1>
             <p id="loading-text" style="color: #a0a0ff; font-size: 1.2em;">loading shreef asf....</p>
         </div>
     </div>
@@ -145,11 +145,17 @@
                 <div>
                     <h3 style="color: #4ecdc4; margin: 0;">Itaxhi_xD</h3>
                     <p style="color: #c0c0ff; margin: 5px 0;">Student & Bot Creator</p>
-                    <p style="color: #c0c0ff; margin: 2px 0;">About owner: <li>I am a beginer of python </li><li>I made this bot due to my interest in bots</li><li> Have fun with this Bot</li><li> This is made with chatgpt,claudeai and me </li></p>
+                    <p style="color: #c0c0ff; margin: 2px 0;">About owner:</p>
+                    <ul style="color: #c0c0ff; margin: 2px 0 2px 20px;">
+                        <li>I am a beginner of python</li>
+                        <li>I made this bot due to my interest in bots</li>
+                        <li>Have fun with this Bot</li>
+                        <li>This is made with chatgpt, claudeai and me</li>
+                    </ul>
                     <div style="margin-top: 10px;">
                         <a href="https://github.com/ITAXHIxD" style="color: #4ecdc4; margin-right: 10px;"><i class="fab fa-github"></i></a>
                         <!--<a href="TWITTER_LINK" style="color: #4ecdc4; margin-right: 10px;"><i class="fab fa-twitter"></i></a>-->
-                        <a href="<https://discord.com/users/1013851779886231685>" style="color: #4ecdc4;"><i class="fab fa-discord"></i></a>
+                        <a href="https://discord.com/users/1013851779886231685" style="color: #4ecdc4;"><i class="fab fa-discord"></i></a>
                     </div>
                 </div>
             </div>
@@ -213,14 +219,6 @@
                 event.target.style.display = 'none';
             }
         }
-        // Modal functionality
-        function openModal(modalId) {
-            document.getElementById(modalId).style.display = 'block';
-        }
-
-        function closeModal(modalId) {
-            document.getElementById(modalId).style.display = 'none';
-        }
 
         // Add event listeners to feature cards
         document.getElementById('fun-card').addEventListener('click', function() {
@@ -234,13 +232,6 @@
         document.getElementById('music-card').addEventListener('click', function() {
             openModal('music-modal');
         });
-
-        // Close modal if clicked outside
-        window.onclick = function(event) {
-            if (event.target.className === 'modal') {
-                event.target.style.display = 'none';
-            }
-        }
     </script>
 </body>
 </html>

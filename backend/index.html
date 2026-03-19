@@ -268,7 +268,6 @@ notifications
 </div>
 </section>
 </div>
-{% endif %}
 </main>
 <footer class="bg-gray-900 text-white">
 <div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
@@ -292,8 +291,8 @@ notifications
         avatar_url: "images/profile-picture.jpg"
     };
 
-    const headerLoggedIn = document.getElementById('logged-in-header');
-    const headerLoggedOut = document.getElementById('logged-out-header');
+    const headerLoggedIn = document.getElementById('logged-in-header-user');
+    const headerLoggedOut = document.getElementById('logged-out-header-buttons');
     
     // For a logged-in user, hide the "logged out" buttons and show the "logged in" ones
     if (user && user.username) {
@@ -332,13 +331,19 @@ notifications
         window.location.href = 'signup.html';
     });
     
-    document.getElementById('getStartedFooterBtn').addEventListener('click', () => {
-        window.location.href = 'signup.html';
-    });
+    const getStartedFooterBtn = document.getElementById('getStartedFooterBtn');
+    if (getStartedFooterBtn) {
+        getStartedFooterBtn.addEventListener('click', () => {
+            window.location.href = 'signup.html';
+        });
+    }
     
-    document.getElementById('studentDashboardBtn').addEventListener('click', () => {
-        window.location.href = 'dashboard.html';
-    });
+    const studentDashboardBtn = document.getElementById('studentDashboardBtn');
+    if (studentDashboardBtn) {
+        studentDashboardBtn.addEventListener('click', () => {
+            window.location.href = 'dashboard.html';
+        });
+    }
 </script>
 </body>
 </html>
