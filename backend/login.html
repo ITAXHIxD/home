@@ -53,7 +53,7 @@
                     </form>
                     <p class="text-center text-base text-[#51946c]">
                         Don't have an account?
-                        <a class="font-medium text-[var(--primary-color)] hover:underline" href="http://127.0.0.1:5000/signup.html">Sign Up</a>
+                        <a class="font-medium text-[var(--primary-color)] hover:underline" href="signup.html">Sign Up</a>
                     </p>
                 </div>
             </main>
@@ -67,7 +67,7 @@
             const password = document.getElementById('password').value;
             
             try {
-                const response = await fetch('http://127.0.0.1:5000/api/login', {
+                const response = await fetch('/api/login', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ email, password })
@@ -77,7 +77,7 @@
                 
                 if (response.ok) {
                     alert('Login successful!');
-                    window.location.href = 'http://127.0.0.1:5000/dashboard.html';
+                    window.location.href = 'dashboard.html';
                 } else {
                     alert('Login failed: ' + result.error);
                 }
